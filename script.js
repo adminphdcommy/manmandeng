@@ -81,10 +81,10 @@ $("#showNickNameCheckbox").on("change", e => {
 let hostname = window.location.origin
 hostname.replace("xn--wiua700r","慢慢等")
 
-$("#url-to-share").val(window.location.origin)
+$("#url-to-share").val(hostname)
 
 $("#showNickNameInput").on("keyup", e => {
-    $("#url-to-share").val(window.location.origin + "?askedBy=" + $("#showNickNameInput").val())
+    $("#url-to-share").val(hostname + "?askedBy=" + $("#showNickNameInput").val())
 })
 
 $("#copyUrlBtn").on("click", e => {
