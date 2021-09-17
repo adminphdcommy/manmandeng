@@ -1,0 +1,18 @@
+html,body{
+    height: 100%;
+    position: relative;
+}
+
+#deng4{
+    font-size: 5rem;
+    position: absolute;
+    top:25%;
+    width: 100%;
+}
+
+#manmandeng{
+    font-size: 7rem;
+    position: absolute;
+    top:40%;
+    width: 100%;
+}
