@@ -11,8 +11,13 @@ html,body{
 }
 
 #manmandeng{
-    font-size: 7rem;
     position: absolute;
-    top:40%;
+    top:45%;
     width: 100%;
+}
+#manmandeng .cn{
+    font-size: 7rem;
+}
+#manmandeng .en{
+    font-size: 2rem;
 }
