@@ -8,6 +8,8 @@
      */
     let askedBy = util.url.get("askedBy")
     if (askedBy) {
+        window.history.replaceState({}, document.title, "/");
+
         askedBy = askedBy.toUpperCase()
         $("#askedBy").html(askedBy)
         $("#askedBy").show()
