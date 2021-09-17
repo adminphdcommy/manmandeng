@@ -1,0 +1,33 @@
+{
+  "name": "manmandeng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "manmandeng.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon manmandeng.js",
+    "serve": "node manmandeng.js",
+    "serve-bg": "nohup node manmandeng.js &",
+    "nohup": "tail -n 100 nohup.out",
+    "nohup-500": "tail -n 500 nohup.out",
+    "nohup-live": "tail -f nohup.out",
+    "ps": "ps -ef |grep 'node manmandeng.js' |grep -v nohup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adminphdcommy/manmandeng.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adminphdcommy/manmandeng/issues"
+  },
+  "homepage": "https://github.com/adminphdcommy/manmandeng#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "path": "^0.12.7",
+    "winston": "^3.3.3"
+  }
+}

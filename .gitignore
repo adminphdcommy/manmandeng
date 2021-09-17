@@ -1,0 +1,10 @@
+node_modules
+**/logs/*.log
+logs/**
+*.log
+temp
+nohup.out
+env.js
+public/publicUtil/firebase.js
+nohup/**
+tmp/**
