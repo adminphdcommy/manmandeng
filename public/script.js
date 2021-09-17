@@ -78,6 +78,9 @@ $("#showNickNameCheckbox").on("change", e => {
     }
 })
 
+let hostname = window.location.origin
+hostname.replace("xn--wiua700r","慢慢等")
+
 $("#url-to-share").val(window.location.origin)
 
 $("#showNickNameInput").on("keyup", e => {
