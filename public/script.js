@@ -69,37 +69,50 @@ function shuffle(array) {
     return array;
 }
 
-$("#showNickNameCheckbox").on("change",e=>{
+$("#showNickNameCheckbox").on("change", e => {
     console.log(e)
-    if($(e.target).is(':checked')){
+    if ($(e.target).is(':checked')) {
         $("#showNickNameInput").show()
-    }else{
+    } else {
         $("#showNickNameInput").hide()
     }
 })
 
 $("#url-to-share").val(window.location.origin)
 
-$("#showNickNameInput").on("keyup",e=>{
-    $("#url-to-share").val(window.location.origin+"?askedBy="+$("#showNickNameInput").val())
+$("#showNickNameInput").on("keyup", e => {
+    $("#url-to-share").val(window.location.origin + "?askedBy=" + $("#showNickNameInput").val())
 })
 
-$("#copyUrlBtn").on("click",e=>{
+$("#copyUrlBtn").on("click", e => {
     copyUrl()
 })
 
 function copyUrl() {
-    /* Get the text field */
-    var copyText = document.getElementById("url-to-share");
-  
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-  
-     /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
-  
-    /* Alert the copied text */
-    $("#copyResult").show()
-  }
-  
+    try {
+        /* Get the text field */
+        var copyText = document.getElementById("url-to-share");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+
+        /* Alert the copied text */
+        $("#copyResult").show()
+    } catch (error) {
+        $("#copyResult").html("Unable to copy, pleae copy it manually")
+        $("#copyResult").removeClass("text-success")
+        $("#copyResult").addClass("text-danger")
+        $("#copyResult").show()
+        $("#url-to-share").prop("disabled",false)
+        var copyText = document.getElementById("url-to-share");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    }
+
+}
