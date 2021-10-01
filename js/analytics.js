@@ -4,6 +4,18 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+firebase.auth().signInAnonymously()
+  .then(() => {
+    // Signed in..
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(error)
+    // ...
+  });
+
+
 async function setVisit(user) {
     try {
 
@@ -26,10 +38,14 @@ async function setVisit(user) {
             let site = e.val()
             sites.push({ id: e.key, ...site })
         })
+        console.log(sites)
         let site = sites[0]
-        site.count++
-        let updatedSiteCount = await firebase.database().ref("sites").child(site.id).update({ count: site.count, aid: pushed.key })
-        let updatedActivitiesCounted = await firebase.database().ref("activities").child(pushed.key).update({ counted: true })
+        if(site){
+            site.count++
+            let updatedSiteCount = await firebase.database().ref("sites").child(site.id).update({ count: site.count, aid: pushed.key })
+            let updatedActivitiesCounted = await firebase.database().ref("activities").child(pushed.key).update({ counted: true })
+    
+        }
     } catch (error) {
         console.log(error)
     }
