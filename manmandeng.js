@@ -73,7 +73,12 @@ app.use("/404",
 // });
 
 
+app.get("/getClientInfo",function(req,res){
+    let clientIp = req.headers['x-forwarded-for'] ||req.socket.remoteAddress
+    let headers = req.headers
+    return res.status(200).send({clientIp,headers})
 
+})
 
 
 
